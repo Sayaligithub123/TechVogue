@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - SkillInvest</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">SkillInvest</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html">Home</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Create Your Account</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label>Select Your Role</label>
+                <div class="role-selection">
+                    <label class="role-card">
+                        <input type="radio" name="role" value="entrepreneur" required>
+                        <div>🚀</div>
+                        <div>Entrepreneur</div>
+                    </label>
+                    <label class="role-card">
+                        <input type="radio" name="role" value="investor" required>
+                        <div>💰</div>
+                        <div>Investor</div>
+                    </label>
+                    <label class="role-card">
+                        <input type="radio" name="role" value="freelancer" required>
+                        <div>💼</div>
+                        <div>Freelancer</div>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6">
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%;">Sign Up</button>
+        </form>
+        <p style="text-align: center; margin-top: 1rem;">
+            Already have an account? <a href="login.html">Login</a>
+        </p>
+        <div id="signupError" style="color: #ef4444; margin-top: 1rem; display: none;"></div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Dashboard - SkillInvest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="../index.html">SkillInvest</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <span id="userName"></span>
+                <a href="javascript:void(0)" onclick="logout()">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="freelancer.html" class="active">Dashboard</a></li>
+                <li><a href="chat.html">Messages</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="javascript:void(0)" onclick="showSettings()">Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Freelancer Dashboard</h1>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Active Collaborations</h3>
+                    <div class="stat-value" id="activeCollaborations">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Applications Sent</h3>
+                    <div class="stat-value" id="applicationsSent">0</div>
+                </div>
+            </div>
+
+            <!-- Profile -->
+            <section class="content-section">
+                <h2>Your Profile</h2>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="skills">Skills (comma separated)</label>
+                        <input type="text" id="skills" placeholder="e.g., Web Development, Design, Marketing">
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio Link</label>
+                        <input type="url" id="portfolio" placeholder="https://yourportfolio.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Profile</button>
+                </form>
+            </section>
+
+            <!-- Available Opportunities -->
+            <section class="content-section">
+                <h2>Startups Looking for Team Members</h2>
+                <div id="opportunitiesList"></div>
+            </section>
+
+            <!-- My Applications -->
+            <section class="content-section">
+                <h2>My Applications</h2>
+                <div id="applicationsList"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/freelancer.js"></script>
+</body>
+</html>
+

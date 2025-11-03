@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Events - SkillInvest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">SkillInvest</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <span id="userName"></span>
+                <a href="javascript:void(0)" onclick="logout()">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="pitch.html" class="active">Pitch Events</a></li>
+                <li><a id="dashboardLink">Dashboard</a></li>
+                <li><a href="chat.html">Messages</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Pitch Events & Networking</h1>
+
+            <!-- Upcoming Events -->
+            <section class="content-section">
+                <h2>Upcoming Pitch Events</h2>
+                <div id="eventsList"></div>
+            </section>
+
+            <!-- Calendar View -->
+            <section class="content-section">
+                <h2>Event Calendar</h2>
+                <div id="calendarContainer"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/pitch.js"></script>
+</body>
+</html>
+

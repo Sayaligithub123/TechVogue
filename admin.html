@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SkillInvest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">SkillInvest</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <span>Admin</span>
+                <a href="javascript:void(0)" onclick="logout()">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="admin.html" class="active">Dashboard</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Admin Dashboard</h1>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <div class="stat-value" id="totalUsers">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Entrepreneurs</h3>
+                    <div class="stat-value" id="totalEntrepreneurs">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Investors</h3>
+                    <div class="stat-value" id="totalInvestors">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Freelancers</h3>
+                    <div class="stat-value" id="totalFreelancers">0</div>
+                </div>
+            </div>
+
+            <!-- User Management -->
+            <section class="content-section">
+                <h2>User Management</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody"></tbody>
+                </table>
+            </section>
+
+            <!-- Startup Approvals -->
+            <section class="content-section">
+                <h2>Startup Approvals</h2>
+                <div id="startupApprovals"></div>
+            </section>
+
+            <!-- Activity Logs -->
+            <section class="content-section">
+                <h2>Recent Activity</h2>
+                <div id="activityLogs"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>
+

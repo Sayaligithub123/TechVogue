@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - SkillInvest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">SkillInvest</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <span id="userName"></span>
+                <a href="javascript:void(0)" onclick="logout()">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a id="dashboardLink">Dashboard</a></li>
+                <li><a href="chat.html" class="active">Messages</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Messages</h1>
+
+            <div class="chat-container">
+                <div class="contacts-list">
+                    <h3 style="margin-bottom: 1rem;">Contacts</h3>
+                    <div id="contactsList"></div>
+                </div>
+                <div class="chat-messages">
+                    <div id="chatHeader" style="padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+                        <h3>Select a contact to start chatting</h3>
+                    </div>
+                    <div class="messages-area" id="messagesArea"></div>
+                    <div class="message-input-area" id="messageInputArea" style="display: none;">
+                        <input type="text" class="message-input" id="messageInput" placeholder="Type a message...">
+                        <button class="btn-primary" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/chat.js"></script>
+</body>
+</html>
+
+

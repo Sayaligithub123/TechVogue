@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneur Dashboard - SkillInvest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">SkillInvest</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <span id="userName"></span>
+                <a href="javascript:void(0)" onclick="logout()">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="entrepreneur.html" class="active">Dashboard</a></li>
+                <li><a href="pitch.html">Pitch Events</a></li>
+                <li><a href="chat.html">Messages</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="javascript:void(0)" onclick="showSettings()">Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Entrepreneur Dashboard</h1>
+
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Investor Interest</h3>
+                    <div class="stat-value" id="investorInterest">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Milestones</h3>
+                    <div class="stat-value" id="activeMilestones">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Team Members</h3>
+                    <div class="stat-value" id="teamMembers">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Messages</h3>
+                    <div class="stat-value" id="messageCount">0</div>
+                </div>
+            </div>
+
+            <!-- Profile Setup -->
+            <section class="content-section">
+                <h2>Startup Profile</h2>
+                <form id="profileForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startupName">Startup Name</label>
+                            <input type="text" id="startupName" name="startupName" placeholder="Enter your startup name">
+                        </div>
+                        <div class="form-group">
+                            <label for="domain">Domain/Industry</label>
+                            <select id="domain" name="domain">
+                                <option value="">Select domain</option>
+                                <option value="tech">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ideaSummary">Idea Summary</label>
+                        <textarea id="ideaSummary" name="ideaSummary" rows="4" placeholder="Describe your startup idea..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Profile</button>
+                </form>
+            </section>
+
+            <!-- Milestones -->
+            <section class="content-section">
+                <h2>Milestones</h2>
+                <form id="milestoneForm" style="margin-bottom: 1rem;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="milestoneDate">Date</label>
+                            <input type="date" id="milestoneDate" name="milestoneDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="milestoneDesc">Description</label>
+                            <input type="text" id="milestoneDesc" name="milestoneDesc" placeholder="Milestone description" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Milestone</button>
+                </form>
+                <ul class="milestone-list" id="milestoneList"></ul>
+            </section>
+
+            <!-- Pitch Deck Upload -->
+            <section class="content-section">
+                <h2>Pitch Deck</h2>
+                <div class="form-group">
+                    <label>Upload Pitch Deck (Mock)</label>
+                    <input type="file" id="pitchDeck" accept=".pdf,.pptx,.doc" disabled style="padding: 0.5rem;">
+                    <p style="color: var(--text-light); font-size: 0.875rem; margin-top: 0.5rem;">
+                        Note: File upload is simulated. In production, this would upload to a server.
+                    </p>
+                    <button type="button" class="btn-secondary" onclick="mockUploadDeck()">Simulate Upload</button>
+                </div>
+                <div id="deckStatus" style="margin-top: 1rem;"></div>
+            </section>
+
+            <!-- Investor Interest -->
+            <section class="content-section">
+                <h2>Investor Interest & Feedback</h2>
+                <div id="investorFeedback"></div>
+            </section>
+
+            <!-- Team Collaboration -->
+            <section class="content-section">
+                <h2>Team Collaboration</h2>
+                <button class="btn-primary" onclick="showAddFreelancer()">Add Team Member</button>
+                <div id="teamList" style="margin-top: 1rem;"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 2rem; border-radius: 8px; max-width: 500px; width: 90%;">
+            <h2>Settings</h2>
+            <form id="settingsForm">
+                <div class="form-group">
+                    <label for="changePassword">Change Password</label>
+                    <input type="password" id="changePassword" placeholder="New password" minlength="6">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="profileVisible"> Make profile visible to investors
+                    </label>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn-primary">Save Settings</button>
+                    <button type="button" class="btn-secondary" onclick="hideSettings()">Cancel</button>
+                    <button type="button" onclick="deleteAccount()" class="btn-danger">Delete Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/entrepreneur.js"></script>
+</body>
+</html>
+
